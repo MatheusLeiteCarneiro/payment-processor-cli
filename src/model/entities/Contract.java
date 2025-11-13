@@ -1,5 +1,6 @@
 package model.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,15 +8,17 @@ public class Contract {
     private int number;
     private String payerName;
     private double basePrice;
+    private LocalDate date;
     private List<Installment> installmentList = new ArrayList<>();
 
     public Contract() {
     }
 
-    public Contract(int number, String payerName, double basePrice) {
+    public Contract(int number, String payerName, double basePrice, LocalDate date) {
         this.number = number;
         this.payerName = payerName;
         this.basePrice = basePrice;
+        this.date = date;
     }
 
     public int getNumber() {
@@ -40,6 +43,10 @@ public class Contract {
 
     public void setBasePrice(double basePrice) {
         this.basePrice = basePrice;
+    }
+
+    public LocalDate getDate() {
+        return date;
     }
 
     public List<Installment> getInstallmentList() {
