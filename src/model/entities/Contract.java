@@ -59,10 +59,16 @@ public class Contract {
 
     public String showAllInstallments(){
         StringBuilder sb = new StringBuilder();
+        double totalValue = 0.0;
         for (Installment installment : installmentList){
-            sb.append(installment.getDueDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
-                    " - " + String.format("%.2f%n",installment.getPrice()));
+            sb.append("Due date: " +
+                    installment.getDueDate().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) +
+                    " - Price: $" +
+                    String.format("%.2f%n",installment.getPrice())
+            );
+            totalValue += installment.getPrice();
         }
+        sb.append(String.format("Total price: $%.2f%n",totalValue));
         return sb.toString();
     }
 
