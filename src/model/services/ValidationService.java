@@ -24,13 +24,13 @@ public class ValidationService {
         }
     }
 
-    public static void verifyInstallment(int installmentAmount){
+    public static void verifyInstallment(int installmentAmount) throws InstallmentException {
         if(installmentAmount < 1 || installmentAmount > 12){
             throw new InstallmentException("The installment amount must be between 1 and 12.");
         }
     }
 
-    public static void paymentValidation(int method){
+    public static void paymentValidation(int method) throws PaymentMethodException {
         if(method != 1 && method != 2 && method != 3){
             throw new PaymentMethodException("Type a valid method: ");
         }
