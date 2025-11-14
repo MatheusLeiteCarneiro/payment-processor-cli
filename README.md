@@ -13,7 +13,9 @@ The application uses these patterns to generate a list of installments for a con
 ## ✨ Features
 
 * **Contract Registration:** Gathers essential contract data (number, payer name, and base price) from the user.
+
 * **Dynamic Payment Method Selection:** Allows the user to select a payment method (Pix, Debit Card, Credit Card).
+
 * **Dynamic Fee Calculation:**
     * The core feature of the system.
     * Dynamically applies the correct business logic based on the user's choice:
@@ -42,11 +44,14 @@ This was a complex project that solidified several advanced concepts:
 * **Advanced Interface-Based Design (Strategy Pattern):**
     * This was the primary goal. I designed the entire system around the `PaymentService` interface (the Strategy), with concrete implementations like `PixService`, `DebitService`, and `CreditService`.
     * Used Dependency Injection in the `ProcessingService` constructor to inject the chosen `PaymentService`. This makes the logic flexible and swappable.
+
 * **Robust Custom Exception Handling:**
     * This was the second main focus. I implemented custom checked exceptions (`InstallmentException`, `PaymentMethodException`) to represent specific business rule failures.
     * This forced the Program to handle user input errors in try-catch loops, creating a robust separation between error detection (in ValidationService) and error handling (in Program).
+
 * **Clean Architecture:**
     * Successfully separated the application into distinct layers, each with a single responsibility: `application` (UI), `model.entities` (Data), `model.services` (Business Logic), and `model.exceptions` (Errors).
+
 * **Git & Version Control:**
     * Utilized Git to manage the project's development, practicing commits for each new feature.
 
