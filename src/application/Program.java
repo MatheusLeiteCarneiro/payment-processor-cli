@@ -67,7 +67,7 @@ public class Program {
         int installmentAmount;
         System.out.println("Select a payment method: ");
         while (true){
-            System.out.print("Digit-(1-pix|2-DebitCard|3-CreditCard): ");
+            System.out.print("Enter (1-Pix | 2-Debit Card | 3-Credit Card): ");
             try {
                 paymentMethod = sc.nextInt();
                 ValidationService.paymentValidation(paymentMethod);
@@ -81,17 +81,21 @@ public class Program {
         ProcessingService service;
         switch (paymentMethod){
             case 1:
+                System.out.println("(There is no processing fee for pix payment).\n");
+                System.out.println();
                 installmentAmount = 1;
                 service = new ProcessingService(new PixService());
                 service.processInstallments(contract, installmentAmount);
                 break;
             case 2:
+                System.out.println("(A 0.25% processing fee applies to all debit payments).\n");
                 installmentAmount = 1;
                 service = new ProcessingService(new DebitService());
                 service.processInstallments(contract, installmentAmount);
                 break;
             case 3:
-                System.out.println("Up to 3 interest-free installments and max of 12 installments.");
+                System.out.println("Monthly interest applies after 3 installments with a maximum of 12 installments.");
+                System.out.println("(A 0.7% processing fee applies to all credit payments).\n");
                 while (true) {
                     System.out.print("Enter the amount of Installments you want: ");
                     try{

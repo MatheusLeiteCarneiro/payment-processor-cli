@@ -14,7 +14,7 @@ public class ValidationService {
     }
     public static void verifyContractNumber(int number){
         if(number < 0){
-            throw new IllegalArgumentException("The contract number must be equal or greater or than 0.");
+            throw new IllegalArgumentException("The contract number must be equal to or greater than 0.");
         }
     }
 
