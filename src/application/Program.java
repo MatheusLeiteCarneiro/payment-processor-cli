@@ -82,7 +82,6 @@ public class Program {
         switch (paymentMethod){
             case 1:
                 System.out.println("(There is no processing fee for pix payment).\n");
-                System.out.println();
                 installmentAmount = 1;
                 service = new ProcessingService(new PixService());
                 service.processInstallments(contract, installmentAmount);
